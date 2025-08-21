@@ -1,0 +1,36 @@
+spring:
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+
+  app:
+  datasource:
+    url: jdbc:h2:mem:notesdb;DB_CLOSE_DELAY=-1;MODE=LEGACY
+    driverClassName: org.h2.Driver
+    username: jarvis
+    password: jarvis
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+app:
+  jwt:
+    secret: "${JWT_SECRET:09876543211234567890098765432112}"
+    expiration-ms: 3600000
+  aes:
+    key: "${AES_KEY:0123456789abcdef0123456789abcdef}"
+
+server:
+  port: 8080
+
+
+storage:
+  images: src/uploads/images
+  imagesOptimized: src/uploads/images/optimized
+  docs: src/uploads/docs
+
+
